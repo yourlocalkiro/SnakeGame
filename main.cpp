@@ -16,13 +16,13 @@ int main() {
 
     Snake player;
     Food food;
-    Sound eatSound = LoadSound("EAT.wav");
-    Sound leftSound = LoadSound("LEFT.wav");
-    Sound rightSound = LoadSound("RIGHT.wav");
-    Sound upSound = LoadSound("UP.wav");
-    Sound downSound = LoadSound("DOWN.wav");
-    Sound winSound = LoadSound("WIN.wav");
-    Sound deathSound = LoadSound("DEATH.wav");
+    Sound eatSound = LoadSound("Audio/EAT.wav");
+    Sound leftSound = LoadSound("Audio/LEFT.wav");
+    Sound rightSound = LoadSound("Audio/RIGHT.wav");
+    Sound upSound = LoadSound("Audio/UP.wav");
+    Sound downSound = LoadSound("Audio/DOWN.wav");
+    Sound winSound = LoadSound("WAudio/IN.wav");
+    Sound deathSound = LoadSound("Audio/DEATH.wav");
 
     food.Spawn(player.GetBody());
 
