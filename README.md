@@ -5,7 +5,6 @@ A simple Snake game made in **C++ using Raylib**.
 This project was built as a learning project to practice **C++ OOP, game loops, collision detection, input handling, audio, and basic game development**.
 [Mostly out of curiosity, as I saw many people create the same project using Python, but no one worked with C or C++. So i wondered how hard it could possibly be?]
 
----
 
 ## 🎮 Features
 
