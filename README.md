@@ -25,8 +25,6 @@ This project was built as a learning project to practice **C++ OOP, game loops, 
 - Embedded audio — the final `.exe` does not require separate audio files
 - Simple checkerboard-style game background
 
----
-
 ## 🕹️ Controls
 
 | Key | Action |
@@ -38,7 +36,6 @@ This project was built as a learning project to practice **C++ OOP, game loops, 
 | `ENTER` | Start Game |
 | `R` | Restart after Game Over / Win |
 
----
 
 ## 🛠️ Built With
 
@@ -47,7 +44,6 @@ This project was built as a learning project to practice **C++ OOP, game loops, 
 - **MSYS2 / MinGW-w64**
 - **Visual Studio Code**
 
----
 
 ## 📁 Project Structure
 
@@ -74,3 +70,7 @@ SnakeGame/
     ├── DOWN.wav
     ├── WIN.wav
     └── DEATH.wav
+```
+## 🔊 Embedded Audio
+
+The game embeds its sound effects directly into the executable. The **embed_audio.py** script converts the WAV files into C++ header files containing the audio data. The game then loads the sounds using Raylib's memory-based audio functions. This means the final executable **can be distributed as a single .exe file** without requiring a separate Audio folder.
