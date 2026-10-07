@@ -35,6 +35,7 @@ This project was built as a learning project to practice **C++ OOP, game loops, 
 | `D` / `→` | Move Right |
 | `ENTER` | Start Game |
 | `R` | Restart after Game Over / Win |
+| `ESC` | Exit Game |
 
 ## 🛠️ Built With
 
