@@ -2,6 +2,15 @@
 #include "Snake.h"
 #include "Food.h"
 
+//Including Embedded Audios
+#include "eat.h"
+#include "left.h"
+#include "right.h"
+#include "up.h"
+#include "down.h"
+#include "win.h"
+#include "death.h"
+
 enum GameState {
     MENU,
     PLAYING,
@@ -16,14 +25,35 @@ int main() {
 
     Snake player;
     Food food;
-    Sound eatSound = LoadSound("Audio/EAT.wav");
-    Sound leftSound = LoadSound("Audio/LEFT.wav");
-    Sound rightSound = LoadSound("Audio/RIGHT.wav");
-    Sound upSound = LoadSound("Audio/UP.wav");
-    Sound downSound = LoadSound("Audio/DOWN.wav");
-    Sound winSound = LoadSound("WAudio/IN.wav");
-    Sound deathSound = LoadSound("Audio/DEATH.wav");
 
+    Wave eatWave = LoadWaveFromMemory(".WAV", eatData, eatDataSize);
+    Sound eatSound = LoadSoundFromWave(eatWave);
+    UnloadWave(eatWave);
+
+    Wave leftWave = LoadWaveFromMemory(".WAV", leftData, leftDataSize);
+    Sound leftSound = LoadSoundFromWave(leftWave);
+    UnloadWave(leftWave);
+
+    Wave rightWave = LoadWaveFromMemory(".WAV", rightData, rightDataSize);
+    Sound rightSound = LoadSoundFromWave(rightWave);
+    UnloadWave(rightWave);
+
+    Wave upWave = LoadWaveFromMemory(".WAV", upData, upDataSize);
+    Sound upSound = LoadSoundFromWave(upWave);
+    UnloadWave(upWave);
+
+    Wave downWave = LoadWaveFromMemory(".WAV", downData, downDataSize);
+    Sound downSound = LoadSoundFromWave(downWave);
+    UnloadWave(downWave);
+
+    Wave winWave = LoadWaveFromMemory(".WAV", winData, winDataSize);
+    Sound winSound = LoadSoundFromWave(winWave);
+    UnloadWave(winWave);
+
+    Wave deathWave = LoadWaveFromMemory(".WAV", deathData, deathDataSize);
+    Sound deathSound = LoadSoundFromWave(deathWave);
+    UnloadWave(deathWave);
+    
     food.Spawn(player.GetBody());
 
     GameState gameState = MENU;
@@ -71,6 +101,7 @@ int main() {
                     score++;
                     if (player.GetBody().size() >= 520){
                         gameState = GAME_WON;
+                        PlaySound(winSound);
                     }
                     else{
                         food.Spawn(player.GetBody());
@@ -103,7 +134,6 @@ int main() {
         }
 
         else if  (gameState == GAME_WON){
-            PlaySound(winSound);
             int winWidth = MeasureText("YOU WIN!", 40);
             int restartWidth = MeasureText("Press R To Restart", 20);
             DrawText("YOU WIN!", (GetScreenWidth()-winWidth)/2, 250, 40, GREEN);
